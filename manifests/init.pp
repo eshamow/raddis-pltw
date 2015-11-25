@@ -1,9 +1,3 @@
-class pltw (
-  $message = 'pltw',
-) {
-
-  notify { 'pltw':
-    message => $message,
-  }
-
+class pltw {
+  include pltw::baseline
 }
