@@ -14,4 +14,9 @@ class pltw::baseline {
     }
   }
 
+  file { 'C:\\Windows\\Temp\\puppet.txt':
+    ensure  => file,
+    content => "Created by Puppet\r\n",
+  }
+
 }
