@@ -36,4 +36,4 @@ Write-Host "Installing nimbus module"
 Start-Process -FilePath $puppet_path -ArgumentList "module install tse/nimbus" -Wait
 
 Write-Host "Configuring system with Puppet Nimbus"
-Start-Process -FilePath $puppet_path -ArgumentList "nimbus apply https://git.io/vBnP6" -Wait
+Start-Process -FilePath $puppet_path -ArgumentList "nimbus apply https://git.io/vBcAp" -Wait

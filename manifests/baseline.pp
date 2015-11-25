@@ -4,7 +4,7 @@ class pltw::baseline {
     ensure    => present,
     enabled   => true,
     command   => 'C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat',
-    arguments => 'nimbus apply https://git.io/vBnP6',
+    arguments => 'nimbus apply https://git.io/vBcAp',
     trigger   => {
       schedule         => daily,
       start_date       => '2015-01-01',
