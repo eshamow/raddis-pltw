@@ -1,0 +1,10 @@
+{
+  "name": "roseaddis-pltw",
+  "version": "0.1.0",
+  "author": "Reid Vandewiele",
+  "license": "Apache-2.0",
+  "summary": "Project configuration for lab computers",
+  "source": "https://github.com/reidmv/pltw",
+  "project_page": "https://github.com/reidmv/pltw",
+  "dependencies": [ ]
+}
