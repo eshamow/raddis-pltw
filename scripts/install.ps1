@@ -8,12 +8,13 @@ Function Http-Get { Param($url, $file)
 }
 
 # Get system information and set variables
+$arch = if ([System.IntPtr]::Size -eq 4) { "86" } else { "64" }
 $puppet_master_server = "localhost"
 $objIPProperties = [System.Net.NetworkInformation.IPGlobalProperties]::GetIPGlobalProperties()
 $name_components = @($objIPProperties.HostName, $objIPProperties.DomainName) | ? {$_}
 $certname = ($name_components -Join ".").ToLower()
-$msi_source = "http://downloads.puppetlabs.com/windows/puppet-agent-x86-latest.msi"
-$msi_dest = "C:\Windows\temp\puppet-agent-x86.msi"
+$msi_source = "http://downloads.puppetlabs.com/windows/puppet-agent-x$($arch)-latest.msi"
+$msi_dest = "C:\Windows\temp\puppet-agent-x$($arch).msi"
 $msiexec_path = "C:\Windows\System32\msiexec.exe"
 $msiexec_args = "/qn /i $msi_dest PUPPET_AGENT_CERTNAME=$certname PUPPET_MASTER_SERVER=localhost PUPPET_AGENT_STARTUP_MODE=Disabled"
 $puppet_path = "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat"
