@@ -9,8 +9,6 @@ Function Http-Get { Param($url, $file)
 
 # Get system information and set variables
 $puppet_master_server = "localhost"
-#$msi_source = "http://downloads.puppetlabs.com/windows/puppet-agent-x64-latest.msi"
-#$msi_dest = "C:\Windows\temp\puppet-agent-x64.msi"
 $objIPProperties = [System.Net.NetworkInformation.IPGlobalProperties]::GetIPGlobalProperties()
 $name_components = @($objIPProperties.HostName, $objIPProperties.DomainName) | ? {$_}
 $certname = ($name_components -Join ".").ToLower()
@@ -24,7 +22,7 @@ $gem_path = "C:\Program Files\Puppet Labs\Puppet\sys\ruby\bin\gem"
 Write-Host "System name is $certname"
 
 Write-Host "Downloading puppet agent from $msi_source"
-#Http-Get -url $msi_source -file $msi_dest
+Http-Get -url $msi_source -file $msi_dest
 
 Write-Host "Installing puppet agent"
 Start-Process -FilePath $msiexec_path -ArgumentList $msiexec_args -Wait
