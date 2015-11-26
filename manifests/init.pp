@@ -1,3 +1,1 @@
-class pltw {
-  include pltw::baseline
-}
+class pltw ($nimbus_config) { }

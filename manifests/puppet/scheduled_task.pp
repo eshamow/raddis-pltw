@@ -1,10 +1,11 @@
-class pltw::puppet::scheduled_task ($config) {
+class pltw::puppet::scheduled_task {
+  include pltw
 
   scheduled_task { 'puppet':
     ensure    => present,
     enabled   => true,
     command   => 'C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat',
-    arguments => "nimbus apply ${config}",
+    arguments => "nimbus apply ${pltw::nimbus_config}",
     trigger   => {
       schedule         => daily,
       start_date       => '2015-01-01',

@@ -1,4 +1,4 @@
 class pltw::baseline {
-  include pltw::puppet::monkeypatches
+  include pltw::puppet::baseline
 
 }

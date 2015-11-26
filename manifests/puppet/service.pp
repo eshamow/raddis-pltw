@@ -1,4 +1,5 @@
-class pltw::puppet::service ($config) {
+class pltw::puppet::service {
+  include pltw
 
   service { 'puppet':
     ensure => running,
@@ -7,7 +8,7 @@ class pltw::puppet::service ($config) {
 
   file { 'C:/Program Files/Puppet Labs/Puppet/service/daemon.rb':
     ensure  => file,
-    content => epp('pltw/puppet/daemon.rb.epp', { 'config' => $config }),
+    content => epp('pltw/puppet/daemon.rb.epp', { 'config' => $pltw::nimbus_config }),
     notify  => Service['puppet'],
   }
 
