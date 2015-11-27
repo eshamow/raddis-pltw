@@ -46,7 +46,7 @@ class pltw::puppetdb {
   include puppetboard
 
   class { 'puppetboard::apache::vhost':
-    vhost_name => '*',
+    vhost_name => 'puppetdb',
     port       => '80',
   }
 
