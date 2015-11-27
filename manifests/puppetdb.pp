@@ -1,7 +1,14 @@
 class pltw::puppetdb {
 
-  include puppetdb
   include nginx
+
+  class { 'puppetdb':
+    disable_ssl => true,
+  }
+
+  class { 'selinux':
+    mode => 'disabled',
+  }
 
   nginx::resource::upstream { 'puppetdb-app':
     members => ['localhost:8080'],
