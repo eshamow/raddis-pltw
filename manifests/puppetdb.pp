@@ -31,4 +31,10 @@ class pltw::puppetdb {
     ssl_key     => "/etc/ssl/certs/${::fqdn}.key",
   }
 
+  firewall { '100 Allow inbound PuppetDB (v4)':
+    dport  => 8081,
+    proto  => 'tcp',
+    action => 'accept',
+  }
+
 }
