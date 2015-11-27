@@ -37,4 +37,21 @@ class pltw::puppetdb {
     action => 'accept',
   }
 
+  #################
+  ## Puppetboard ##
+  #################
+
+  include git
+  include apache
+  include puppetboard
+
+  class { 'puppetboard::apache::vhost':
+    vhost_name => '*',
+    port       => '80',
+  }
+
+  class { 'apache::mod::wsgi':
+    wsgi_socket_prefix => "/var/run/wsgi",
+  }
+
 }
