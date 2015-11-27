@@ -54,4 +54,10 @@ class pltw::puppetdb {
     wsgi_socket_prefix => "/var/run/wsgi",
   }
 
+  firewall { '100 Allow inbound PuppetBoard':
+    dport  => 5000,
+    proto  => 'tcp',
+    action => 'accept',
+  }
+
 }
