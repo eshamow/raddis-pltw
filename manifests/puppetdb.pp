@@ -47,7 +47,7 @@ class pltw::puppetdb {
 
   class { 'puppetboard::apache::vhost':
     vhost_name => 'puppetdb',
-    port       => '80',
+    port       => '5000',
   }
 
   class { 'apache::mod::wsgi':
