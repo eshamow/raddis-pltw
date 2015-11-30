@@ -8,6 +8,11 @@ class pltw::block_sites ($sites = []) {
     }
   }
 
-  # Should we purge hosts resources? Need to look at example hosts file from a
-  # lab system to know whether or not that would be a good idea.
+  # The hosts file is not used for anything besides blocking undesired sites.
+  # To allow for automatic un-blocking, purge any unmanaged entries.
+  resources { 'host':
+    purge => true,
+    noop  => true,
+  }
+
 }
