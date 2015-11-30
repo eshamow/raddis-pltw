@@ -1,4 +1,4 @@
-class pltw::puppet::baseline {
+class pltw::puppet::config {
   include pltw
 
   # Work around a heinous error printing bug on Windows.
