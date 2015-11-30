@@ -12,7 +12,6 @@ class pltw::block_sites ($sites = []) {
   # To allow for automatic un-blocking, purge any unmanaged entries.
   resources { 'host':
     purge => true,
-    noop  => true,
   }
 
 }
