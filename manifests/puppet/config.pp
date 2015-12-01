@@ -15,4 +15,11 @@ class pltw::puppet::config {
     description       => 'Run Puppet Nimbus on-demand',
   }
 
+  # Make sure the installed Nimbus module is up to date
+  exec { 'update nimbus':
+    path    => 'C:/Windows/system32;C:/Program Files/Puppet Labs/Puppet/bin',
+    command => 'puppet.bat module install tse/nimbus --force --version 0.7.0',
+    unless  => 'cmd.exe /c puppet.bat module list | FindStr /r tse-nimbus.*0.7.0',
+  }
+
 }
