@@ -6,6 +6,6 @@ class pltw ($nimbus_config) {
   include pltw::puppet::reporting
 
   # Lab computer desired state configuration
-  include pltw::block_sites
+  include pltw::websites
 
 }

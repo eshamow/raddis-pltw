@@ -1,6 +1,6 @@
 class pltw::websites ($blocked = []) {
 
-  $sites.each |$site| {
+  $blocked.each |$site| {
     host { $site:
       ensure  => present,
       ip      => '127.0.0.1', # point to localhost instead of web address ip
