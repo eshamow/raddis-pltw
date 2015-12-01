@@ -1,11 +1,17 @@
 class pltw::software ($installed = []) {
-  require chocolatey
+  include chocolatey
 
-  Package { provider => chocolatey }
+  dotnet { 'dotnet451':
+    ensure  => present,
+    version => '4.5.1',
+    before  => Class['chocolatey'],
+  }
 
   $installed.each |$program| {
     package { $program:
-      ensure => installed,
+      ensure   => installed,
+      provider => chocolatey,
+      require  => Class['chocolatey'],
     }
   }
 
