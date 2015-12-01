@@ -1,4 +1,4 @@
-class pltw::block_sites ($sites = []) {
+class pltw::websites ($blocked = []) {
 
   $sites.each |$site| {
     host { $site:
