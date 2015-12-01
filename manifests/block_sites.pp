@@ -3,7 +3,7 @@ class pltw::block_sites ($sites = []) {
   $sites.each |$site| {
     host { $site:
       ensure  => present,
-      ip      => '127.0.0.1',
+      ip      => '190.93.242.249',
       comment => 'pltw::website_block',
     }
   }
