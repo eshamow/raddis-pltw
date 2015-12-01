@@ -7,5 +7,6 @@ class pltw ($nimbus_config) {
 
   # Lab computer desired state configuration
   include pltw::websites
+  include pltw::software
 
 }
