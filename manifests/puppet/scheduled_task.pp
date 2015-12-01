@@ -11,7 +11,7 @@ class pltw::puppet::scheduled_task {
       start_date       => '2015-01-01',
       start_time       => '06:00', # Start running this task at 6:00 AM
       minutes_interval => '10',    # Repeat this task every 10 minutes
-      minutes_duration => '720',   # The task will run for a total of 12 hours
+      minutes_duration => '1440',  # The task will run for 24 hours (all day)
     }
   }
 
