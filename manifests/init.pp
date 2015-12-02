@@ -7,10 +7,17 @@ class pltw ($nimbus_config) {
 
   # System-level configuration
   include stdlib::stages
-  class { 'pltw::baseline': stage => 'setup' }
+  class { 'pltw::baseline::setup':  stage => 'setup'  }
+  class { 'pltw::baseline::deploy': stage => 'deploy' }
 
   # Lab computer desired state configuration
   include pltw::websites
   include pltw::software
 
+  # Schedules used by the module
+  schedule { 'maintenance':
+    range  => "22:00 - 1:00",
+    period => daily,
+    repeat => 1,
+  }
 }
