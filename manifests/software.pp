@@ -1,9 +1,9 @@
 class pltw::software ($installed = []) {
   include chocolatey
 
-  dotnet { 'dotnet451':
+  dotnet { 'dotnet452':
     ensure  => present,
-    version => '4.5.1',
+    version => '4.5.2',
     before  => Class['chocolatey'],
   }
 
