@@ -12,7 +12,7 @@ class pltw ($nimbus_config) {
 
   # Lab computer desired state configuration
   include pltw::websites
-  include pltw::software
+  #include pltw::software
 
   # Schedules used by the module
   schedule { 'maintenance':
