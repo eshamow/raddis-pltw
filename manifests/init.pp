@@ -7,10 +7,6 @@ class pltw ($nimbus_config) {
 
   # Lab computer desired state configuration
   include pltw::websites
-
-  # Temporarily, only include Chocolatey and software on one system
-  if $::clientcert == 'it483397.ad.ppsnet' {
-    include pltw::software
-  }
+  include pltw::software
 
 }
