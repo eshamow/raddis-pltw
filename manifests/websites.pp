@@ -1,11 +1,11 @@
 class pltw::websites (
-  $blocked = [],
+  $blocked          = [],
+  $enable_blocking  = true,
   $block_start_time = 0,
   $block_end_time   = 0,
 ) {
 
-  $current_time = strftime("%H%M") + 0
-  if ($current_time >= $block_start_time and $current_time < $block_end_time) {
+  if $enable_blocking {
     $blocked.each |$site| {
       host { $site:
         ensure  => present,
