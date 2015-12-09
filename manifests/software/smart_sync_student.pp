@@ -1,9 +1,17 @@
 class pltw::software::smart_sync_student {
   include pltw
 
-  $identity = $pltw::hostname_mapping[$::hostname] ? {
-    undef   => 'AnonymousID',
-    default => $pltw::hostname_mapping[$::hostname],
+  # If the computer has an assigned human name, set it to display with that
+  # name in the SMART Sync Teacher view. Otherwise, default to anonymous.
+  case $pltw::hostname_mapping[$::hostname] {
+    undef: {
+      $identity = 'AnonymousID'
+      $idmode   = 0x00000003
+    }
+    default: {
+      $identity = $pltw::hostname_mapping[$::hostname]
+      $idmode   = 0x00000001
+    }
   }
 
   remote_file { 'smartsync2011studentwin.exe':
@@ -27,7 +35,7 @@ class pltw::software::smart_sync_student {
     ['MirrorDriver', 'dword', 0x000003e8],
     ['MulticastTTL', 'dword', 0x00000020],
     ['UnicastNoDelay', 'dword', 0x00000001],
-    ['StudentIDMode', 'dword', 0x00000003],
+    ['StudentIDMode', 'dword', $idmode],
     ['PasswordHash', 'string', ''],
     ['NICListLength', 'dword', 0x00000000],
     ['UseNamingServer', 'dword', 0x00000000],
