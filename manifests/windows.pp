@@ -6,7 +6,7 @@ class pltw::windows (
     ensure         => present,
     policy_setting => 'MaximumPasswordAge',
     policy_type    => 'System Access',
-    policy_value   => '0',
+    policy_value   => '-1',
   }
 
   local_security_policy { 'Password must meet complexity requirements':
