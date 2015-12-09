@@ -16,6 +16,7 @@ class pltw (
   # Lab computer desired state configuration
   include pltw::websites
   include pltw::software
+  include pltw::windows
 
   # Schedules used by the module
   schedule { 'maintenance':
