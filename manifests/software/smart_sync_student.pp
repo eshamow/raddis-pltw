@@ -1,4 +1,10 @@
 class pltw::software::smart_sync_student {
+  include pltw
+
+  $identity = $pltw::hostname_mapping[$::hostname] ? {
+    undef   => 'AnonymousID',
+    default => $pltw::hostname_mapping[$::hostname],
+  }
 
   remote_file { 'smartsync2011studentwin.exe':
     ensure => present,
@@ -31,7 +37,7 @@ class pltw::software::smart_sync_student {
     ['CtrlAltDelSettings', 'dword', 0x00000002],
     ['EnableFileTransfer', 'dword', 0x00000001],
     ['Visible', 'dword', 0x00000000],
-    ['StudentID', 'string', 'AnonymousID'],
+    ['StudentID', 'string', $identity],
     ['Build Version', 'string', '10.0.574.0'],
     ['ConnectTeacherID', 'string', ''],
     ['EnableHelp', 'dword', 0x00000000],
