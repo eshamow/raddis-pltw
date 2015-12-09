@@ -1,4 +1,7 @@
-class pltw ($nimbus_config) {
+class pltw (
+  $nimbus_config,
+  $hostname_mapping = {},
+) {
 
   # Foundational puppet configuration
   include pltw::puppet::config
@@ -13,7 +16,6 @@ class pltw ($nimbus_config) {
   # Lab computer desired state configuration
   include pltw::websites
   include pltw::software
-  include pltw::windows
 
   # Schedules used by the module
   schedule { 'maintenance':
