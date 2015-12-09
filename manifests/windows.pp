@@ -13,7 +13,7 @@ class pltw::windows (
     ensure         => present,
     policy_setting => 'PasswordComplexity',
     policy_type    => 'System Access',
-    policy_vallue  => '0',
+    policy_value   => '0',
   }
 
   local_security_policy { 'Minimum password length':
