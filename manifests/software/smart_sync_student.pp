@@ -1,9 +1,9 @@
 class pltw::software::smart_sync_student {
   include pltw
 
-  package { 'SMART Sync Student':
-    ensure => absent,
-  }
+#  package { 'SMART Sync Student':
+#    ensure => absent,
+#  }
 
 # If the computer has an assigned human name, set it to display with that
 # name in the SMART Sync Teacher view. Otherwise, default to anonymous.
