@@ -5,8 +5,8 @@ class pltw::software::smart_sync_student {
     ensure => absent,
   }
 
- If the computer has an assigned human name, set it to display with that
- name in the SMART Sync Teacher view. Otherwise, default to anonymous.
+# If the computer has an assigned human name, set it to display with that
+# name in the SMART Sync Teacher view. Otherwise, default to anonymous.
  case $pltw::hostname_mapping[$::hostname] {
    undef: {
      $identity = 'AnonymousID'
