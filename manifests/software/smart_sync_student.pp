@@ -61,7 +61,7 @@ class pltw::software::smart_sync_student {
    ['CustomSharedFolder', 'string', ''],
    ['SecurityUsed', 'dword', 0x00000000],
    ['ConnectIP', 'string', 'it483411.ad.ppsnet'],
-   ['ConnectionUsed', 'dword', 0x00000003],
+   ['ConnectionUsed', 'dword', 0x00000002],
    ['EnableNICDefaultOrder', 'dword', 0x00000001],
    ['EnableQuestions', 'dword', 0x00000001],
    ['NamingServerLoc', 'string', ''],
