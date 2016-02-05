@@ -4,6 +4,11 @@ class pltw::software::smart_sync_student {
   package { 'SMART Sync Student':
     ensure => absent,
   }
+  registry_value { 'HKLM\\Software\\SMART Technologies\\SMART Sync Student':
+    ensure  => absent,
+    require => Package['SMART Sync Student'],
+  }
+
 
 # If the computer has an assigned human name, set it to display with that
 # name in the SMART Sync Teacher view. Otherwise, default to anonymous.
@@ -88,5 +93,4 @@ class pltw::software::smart_sync_student {
 #      require => Registry_key[$key],
 #    }
 #  }
-
 }
