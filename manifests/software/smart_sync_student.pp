@@ -4,10 +4,10 @@ class pltw::software::smart_sync_student {
 #  package { 'SMART Sync Student':
 #    ensure => absent,
 #  }
-#  registry_value { 'HKCU\\Software\\SMART Technologies\\SMART Sync Student':
-#    ensure  => absent,
-#    require => Package['SMART Sync Student'],
-#  }
+ registry_value { 'HKCU\\Software\\SMART Technologies\\SMART Sync Student':
+   ensure  => present,
+   require => Package['SMART Sync Student'],
+ }
 
 
 # If the computer has an assigned human name, set it to display with that
