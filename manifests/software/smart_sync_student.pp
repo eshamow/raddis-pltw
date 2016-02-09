@@ -4,7 +4,7 @@ class pltw::software::smart_sync_student {
 #  package { 'SMART Sync Student':
 #    ensure => absent,
 #  }
- registry_value { 'HKCU\\Software\\SMART Technologies\\SMART Sync Student':
+ registry_value { 'HKLM\\Software\\SMART Technologies\\SMART Sync Student':
    ensure  => present,
    require => Package['SMART Sync Student'],
  }
@@ -36,7 +36,7 @@ class pltw::software::smart_sync_student {
    install_options => ['/S', '/v/qn'],
  }
 
- $key = 'HKCU\\Software\\SMART Technologies\\SMART Sync Student'
+ $key = 'HKLM\\Software\\SMART Technologies\\SMART Sync Student'
 
  $values = [
    ['RedrawHooks', 'dword', 0x000003e8],
