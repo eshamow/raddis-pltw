@@ -36,7 +36,8 @@ class pltw::software::smart_sync_student {
    install_options => ['/S', '/v/qn'],
  }
 
- $key = 'HKLM\\Software\\Wow6432Node\\SMART Technologies\\SMART Sync Student'
+ $key = 'HKLM\\Software\\SMART Technologies\\SMART Sync Student'
+ $nodekey = 'HKLM\\Software\\Wow6432Node\\SMART Technologies\\SMART Sync Student'
 
  $values = [
    ['RedrawHooks', 'dword', 0x000003e8],
@@ -91,6 +92,28 @@ class pltw::software::smart_sync_student {
      type    => $value[1],
      data    => $value[2],
      require => Registry_key[$key],
+   }
+ }
+
+ $wowvalues = [
+   ['LanguageID', 'dword', 0x00000000],
+   ['StudentIDMode', 'dword', 0x00000003],
+   ['CtrlAltDelSettings', 'dword', 0x00000002],
+   ['ConnectTeacherID', 'dword', "Rose Addis"],
+   ['ConnectionUsed', 'dword', 0x00000002],
+ ]
+
+ registry_key { $nodekey:
+   ensure  => present,
+   require => Package['SMART Sync Student'],
+ }
+
+ $values.each |$wowvalue| {
+   registry_value { "${nodekey}\\${value[0]}":
+     ensure  => present,
+     type    => $value[1],
+     data    => $value[2],
+     require => Registry_key[$nodekey],
    }
  }
 }
