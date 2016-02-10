@@ -19,8 +19,17 @@ $msiexec_path = "C:\Windows\System32\msiexec.exe"
 $msiexec_args = "/qn /i $msi_dest PUPPET_AGENT_CERTNAME=$certname PUPPET_MASTER_SERVER=localhost PUPPET_AGENT_STARTUP_MODE=Disabled"
 $puppet_path = "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat"
 $gem_path = "C:\Program Files\Puppet Labs\Puppet\sys\ruby\bin\gem"
+$certutil_path = "C:\Windows\System32\certutil.exe"
+$ca_source = "https://www.geotrust.com/resources/root_certificates/certificates/GeoTrust_Global_CA.pem"
+$ca_dest = "C:\Windows\temp\geotrustglobalca.pem"
 
 Write-Host "System name is $certname"
+
+Write-Host "Downloading GeoTrust Global CA"
+Http-Get -url $ca_source -file $ca_dest
+
+Write-Host "Installing GeoTrust Global CA"
+Start-Process -FilePath $certutil_path -ArgumentList "-v -addstore Root $ca_dest" -Wait
 
 Write-Host "Downloading puppet agent from $msi_source"
 Http-Get -url $msi_source -file $msi_dest
