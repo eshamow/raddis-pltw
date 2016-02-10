@@ -109,7 +109,7 @@ class pltw::software::smart_sync_student {
  }
 
  $values.each |$wowvalue| {
-   registry_value { "${nodekey}\\${value[0]}":
+   registry_value { "${nodekey}\\${wowvalue[0]}":
      ensure  => present,
      type    => $value[1],
      data    => $value[2],
