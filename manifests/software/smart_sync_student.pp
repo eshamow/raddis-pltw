@@ -36,7 +36,7 @@ class pltw::software::smart_sync_student {
    install_options => ['/S', '/v/qn'],
  }
 
- $key = 'HKLM\\Software\\SMART Technologies\\SMART Sync Student'
+ $key = 'HKLM\\Software\\Wow6432Node\\SMART Technologies\\SMART Sync Student'
 
  $values = [
    ['RedrawHooks', 'dword', 0x000003e8],
