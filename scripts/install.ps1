@@ -29,19 +29,19 @@ Write-Host "Downloading GeoTrust Global CA"
 Http-Get -url $ca_source -file $ca_dest
 
 Write-Host "Installing GeoTrust Global CA"
-Start-Process -Verbose -FilePath $certutil_path -ArgumentList "-v -addstore Root $ca_dest" -Wait
+Start-Process -FilePath $certutil_path -ArgumentList "-v -addstore Root $ca_dest" -Wait
 
 Write-Host "Downloading puppet agent from $msi_source"
 Http-Get -url $msi_source -file $msi_dest
 
 Write-Host "Installing puppet agent"
-Start-Process -Verbose -FilePath $msiexec_path -ArgumentList $msiexec_args -Wait
+Start-Process -FilePath $msiexec_path -ArgumentList $msiexec_args -Wait
 
 Write-Host "Installing hocon gem for nimbus module"
-Start-Process -Verbose -FilePath $gem_path -ArgumentList "install hocon --no-ri --no-rdoc" -Wait
+Start-Process -FilePath $gem_path -ArgumentList "install hocon -v 0.9.3 --no-ri --no-rdoc" -Wait
 
 Write-Host "Installing nimbus module"
-Start-Process -Verbose -FilePath $puppet_path -ArgumentList "module install tse/nimbus" -Wait
+Start-Process -FilePath $puppet_path -ArgumentList "module install tse/nimbus" -Wait
 
 Write-Host "Configuring system with Puppet Nimbus"
-Start-Process -Verbose -FilePath $puppet_path -ArgumentList "nimbus apply https://git.io/vBcAp" -Wait
+Start-Process -FilePath $puppet_path -ArgumentList "nimbus apply https://git.io/vBcAp" -Wait
