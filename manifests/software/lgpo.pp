@@ -10,6 +10,6 @@ class pltw::software::lgpo {
 
   unzip { 'LGPO':
     source  => 'C:/Windows/Temp/LGPO.zip',
-    creates => 'C:/Windows/Temp/LGPO',
+    creates => 'C:/Windows/Temp/LGPO.exe',
   }
 }
