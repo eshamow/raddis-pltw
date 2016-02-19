@@ -1,4 +1,4 @@
-class pltw::software ($installed = []) {
+class pltw::software ($installed = [], $removed = []) {
   include chocolatey
   include pltw::software::smart_sync_student
   include pltw::software::lgpo
