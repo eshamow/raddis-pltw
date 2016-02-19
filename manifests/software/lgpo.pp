@@ -5,11 +5,11 @@ class pltw::software::lgpo {
   remote_file { 'C:/Windows/Temp/LGPO.zip':
     ensure => present,
     source => $zip_source,
-    before => Windows::Unzip['LGPO'],
+    before => Unzip['LGPO'],
   }
 
-  windows::unzip { 'LGPO':
-    destination => 'C:/Windows/Temp/LGPO',
-    creates     => 'C:/Windows/Temp/LGPO/LGPO.exe',
+  unzip { 'LGPO':
+    source  => 'C:/Windows/Temp/LGPO.zip',
+    creates => 'C:/Windows/Temp/LGPO',
   }
 }
