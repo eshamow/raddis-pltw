@@ -21,4 +21,16 @@ class pltw::windows {
     policy_value   => '6',
   }
 
+  # Using pol file as group policy module doesn't support user policies
+  file { 'C:/Windows/Temp/blockapps.pol':
+    ensure => present,
+    source => 'puppet:///modules/pltw/blockapps.pol',
+    before => Exec['Block Applications'],
+  }
+
+  exec { 'block applications':
+    command => 'cmd.exe /c lgpo.exe /u c:\\windows\\temp\\blockapps.pol',
+    cwd     => 'C:/Windows/Temp/LGPO',
+    require => Unzip['LGPO'],
+  }
 }
