@@ -31,6 +31,7 @@ class pltw::windows {
   exec { 'block applications':
     command => 'cmd.exe /c lgpo.exe /u c:\\windows\\temp\\blockapps.pol',
     cwd     => 'C:/Windows/Temp/LGPO',
+    path    => $::path,
     require => Unzip['LGPO'],
   }
 }
