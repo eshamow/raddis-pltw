@@ -25,7 +25,7 @@ class pltw::windows {
   file { 'C:/Windows/Temp/blockapps.pol':
     ensure => present,
     source => 'puppet:///modules/pltw/blockapps.pol',
-    before => Exec['Block Applications'],
+    before => Exec['block applications'],
   }
 
   exec { 'block applications':
