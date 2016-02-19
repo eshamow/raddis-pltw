@@ -17,4 +17,9 @@ class pltw::software ($installed = []) {
     }
   }
 
+  $removed.each |$program| {
+    package { $program:
+      ensure => absent,
+    }
+  }
 }
