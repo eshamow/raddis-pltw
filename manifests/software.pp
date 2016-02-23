@@ -2,6 +2,7 @@ class pltw::software ($installed = [], $removed = []) {
   include chocolatey
   include pltw::software::smart_sync_student
   include pltw::software::lgpo
+  include pltw::software::italc
 
   dotnet { 'dotnet452':
     ensure  => present,
