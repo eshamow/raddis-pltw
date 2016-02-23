@@ -13,12 +13,12 @@ class pltw::software::italc {
   }
 
   exec { 'iTALC settings':
-    command => 'imc.exe -ApplySettings C:\\windows\\temp\\italc_settings.xml',
+    command => 'imc.exe -ApplySettings C:\\windows\\temp\\italc_settings.xml -quiet',
     path    => 'C:/Program Files/iTALC',
     require => Package['italc'],
   }
   exec { 'iTALC public key':
-    command => 'imc.exe" -ImportPublicKey C:\\windows\\temp\italc_public_key.key.txt',
+    command => 'imc.exe -ImportPublicKey C:\\windows\\temp\italc_public_key.key.txt -quiet',
     path    => 'C:/Program Files/iTALC',
     require => Package['italc'],
   }
