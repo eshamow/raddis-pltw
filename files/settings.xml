@@ -2,7 +2,7 @@
 <!DOCTYPE ItalcXmlStore>
 <SystemConfig>
   <Authentication>
-    <EncodedLogonACL>AgAsAAEAAAAAACQAAwAAAAEFAAAAAAAFFQAAAEPcx+rhHSGxcwQjiOgDAAA=</EncodedLogonACL>
+    <EncodedLogonACL>AgBQAAIAAAAAACQAAwAAAAEFAAAAAAAFFQAAABUczkzrDb1JLWAGblwoAQAAACQAAwAAAAEFAAAAAAAFFQAAAEPcx+rhHSGxcwQjiOgDAAA=</EncodedLogonACL>
     <KeyAuthenticationEnabled>1</KeyAuthenticationEnabled>
     <LogonAuthenticationEnabled>1</LogonAuthenticationEnabled>
     <LogonGroups></LogonGroups>
