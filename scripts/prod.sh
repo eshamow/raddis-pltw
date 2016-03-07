@@ -1,4 +1,5 @@
 #!/bin/sh
 
-rm -f ./scripts/TESTING
+git rm -f ./scripts/TESTING
+git commit -m "Switching to production branch"
 git push upstream
