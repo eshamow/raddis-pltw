@@ -22,6 +22,8 @@ $gem_path = "C:\Program Files\Puppet Labs\Puppet\sys\ruby\bin\gem"
 $certutil_path = "C:\Windows\System32\certutil.exe"
 $ca_source = "https://www.geotrust.com/resources/root_certificates/certificates/GeoTrust_Global_CA.pem"
 $ca_dest = "C:\Windows\temp\geotrustglobalca.pem"
+$production_url = "https://git.io/vBcAp"
+$test_url = "https://git.io/v2jXe"
 
 Write-Host "System name is $certname"
 
@@ -43,5 +45,12 @@ Start-Process -FilePath $gem_path -ArgumentList "install hocon -v 0.9.3 --no-ri 
 Write-Host "Installing nimbus module"
 Start-Process -FilePath $puppet_path -ArgumentList "module install tse/nimbus" -Wait
 
-Write-Host "Configuring system with Puppet Nimbus"
-Start-Process -FilePath $puppet_path -ArgumentList "nimbus apply https://git.io/vBcAp" -Wait
+if (Test-Path "$(module_path)/modules/pltw/scripts/TESTING)") {
+  $nimbus_url = $test_url
+  Write-Host "Configuring system with Puppet Nimbus - TEST MODE"
+} else {
+  $nimbus_url = $production_url
+  Write-Host "Configuring system with Puppet Nimbus"
+}
+
+Start-Process -FilePath $puppet_path -ArgumentList "nimbus apply $(nimbus_url)" -Wait
