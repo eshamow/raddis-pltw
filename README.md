@@ -32,5 +32,8 @@ It is possible to set up a lab computer logged in as a normal user account provi
 ## Testing URLs
 
 When testing, replace the above commands with the following:
+
         powershell -nop -c "iex(New-Object Net.WebClient).DownloadString('https://git.io/v2jHW')"
+
         runas /user:administrator "powershell -nop -c \"iex(New-Object Net.WebClient).DownloadString('https://git.io/v2jHW')\""
+
