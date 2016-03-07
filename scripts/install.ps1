@@ -20,6 +20,7 @@ $msiexec_args = "/qn /i $msi_dest PUPPET_AGENT_CERTNAME=$certname PUPPET_MASTER_
 $puppet_path = "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat"
 $gem_path = "C:\Program Files\Puppet Labs\Puppet\sys\ruby\bin\gem"
 $certutil_path = "C:\Windows\System32\certutil.exe"
+$module_path = "C:\ProgramData\PuppetLabs\code\nimbus_environments"
 $ca_source = "https://www.geotrust.com/resources/root_certificates/certificates/GeoTrust_Global_CA.pem"
 $ca_dest = "C:\Windows\temp\geotrustglobalca.pem"
 $production_url = "https://git.io/vBcAp"
