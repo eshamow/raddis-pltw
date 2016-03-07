@@ -46,7 +46,7 @@ Start-Process -FilePath $gem_path -ArgumentList "install hocon -v 0.9.3 --no-ri 
 Write-Host "Installing nimbus module"
 Start-Process -FilePath $puppet_path -ArgumentList "module install tse/nimbus" -Wait
 
-if (Test-Path "$(module_path)/modules/pltw/scripts/TESTING)") {
+if (Test-Path "$module_path/modules/pltw/scripts/TESTING)") {
   $nimbus_url = $test_url
   Write-Host "Configuring system with Puppet Nimbus - TEST MODE"
 } else {
